@@ -8,7 +8,7 @@
 import Combine
 
 extension Middlewares {
-    static let logger: Middleware<AppState> = { state, action in
+    static let logger: Middleware<AppState> = { state, action, _ in
         let stateDescription = "\(state)".replacingOccurrences(of: "SimpleGithub.", with: "")
         print("➡️ \(action)\n✅ \(stateDescription)\n")
 

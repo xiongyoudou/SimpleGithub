@@ -8,6 +8,10 @@
 import Foundation
 
 struct LoginState: Codable {
+//    let userName: String
+//    let password: String
+//    let showingAlert: Bool
+//    let alertMessage: String
     let isLoading: Bool
     let token: String?
     let error: String?
@@ -15,7 +19,11 @@ struct LoginState: Codable {
 
 extension LoginState {
     init() {
-        isLoading = true
+//        userName = ""
+//        password = ""
+//        showingAlert = false
+//        alertMessage = ""
+        isLoading = false
         token = nil
         error = nil
     }

@@ -17,10 +17,14 @@ struct AppView: View {
     @EnvironmentObject var store: Store<AppState>
 
     var body: some View {
-        NavigationView {
-            LoginView()
+        if store.state.screenState(for: .login) as LoginState? != nil {
+            NavigationView {
+                LoginView()
+            }
+            .navigationViewStyle(.stack)
+        } else {
+            ErrorView()
         }
-        .navigationViewStyle(.stack)
     }
 }
 

@@ -9,11 +9,11 @@ import Foundation
 import Combine
 
 extension Middlewares {
-    private static let githubRepos = GithubRepos()
-    private static let usersRepository = UsersRepository()
+    private static let githubRepos = GithubReposNetworking()
+    private static let usersRepository = UserInfoNetworking()
     private static var searchDebouncer = CurrentValueSubject<String, Never>("")
     
-    static let githubReposMiddleware: Middleware<AppState> = { state, action in
+    static let githubReposMiddleware: Middleware<AppState> = { state, action, _ in
         switch action {
         case HomeStateAction.fetchRepos:
             return githubRepos

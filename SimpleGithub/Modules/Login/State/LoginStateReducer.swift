@@ -13,12 +13,11 @@ extension LoginState {
 
         switch action {
         case LoginStateAction.loginToGithub:
-            print("")
+            return LoginState(isLoading: true, token: state.token, error: state.error)
         case LoginStateAction.loginSuccess(let token):
-            print(token)
+            return LoginState(isLoading: state.isLoading, token: token, error: state.error)
         case LoginStateAction.loginFailed(let error):
-            print(error)
+            return LoginState(isLoading: state.isLoading, token: state.token, error: error)
         }
-        return state
     }
 }

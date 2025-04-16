@@ -12,10 +12,10 @@ import SwiftUI
 /// Namespace for Middlewares
 enum Middlewares {}
 protocol Action {}
-struct NoOpAction: Action {}
 
+typealias Dispatch = (Action) -> Void
 typealias Reducer<State> = (State, Action) -> State
-typealias Middleware<State> = (State, Action) -> AnyPublisher<Action, Never>
+typealias Middleware<State> = (State, Action, @escaping Dispatch) -> AnyPublisher<Action, Never>
 
 final class Store<State>: ObservableObject {
     var isEnabled = true
@@ -24,7 +24,7 @@ final class Store<State>: ObservableObject {
 
     private var subscriptions: [UUID: AnyCancellable] = [:]
 
-    private let queue = DispatchQueue(label: "pl.wojciechkulik.SimpleGithub.store", qos: .userInitiated)
+    private let queue = DispatchQueue(label: "com.xyd.SimpleGithub.store", qos: .userInitiated)
     private let reducer: Reducer<State>
     private let middlewares: [Middleware<State>]
 
@@ -55,7 +55,7 @@ final class Store<State>: ObservableObject {
 
         middlewares.forEach { middleware in
             let key = UUID()
-            middleware(newState, action)
+            middleware(newState, action, dispatch)
                 .receive(on: RunLoop.main)
                 .handleEvents(receiveCompletion: { [weak self] _ in self?.subscriptions.removeValue(forKey: key) })
                 .sink(receiveValue: dispatch)

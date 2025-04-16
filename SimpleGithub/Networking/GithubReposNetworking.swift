@@ -8,15 +8,15 @@
 import Foundation
 import Combine
 
-enum GithubReposError: Error {
+enum GithubReposNetworkingError: Error {
     case unknown
     case couldNotFind
 }
 
-final class GithubRepos: ObservableObject {
+final class GithubReposNetworking: ObservableObject {
     private let simulatedDelay: RunLoop.SchedulerTimeType.Stride = 1.0
 
-    func fetchReposWithKeyword(phrase: String? = nil) -> AnyPublisher<[RepoItem], GithubReposError> {
+    func fetchReposWithKeyword(phrase: String? = nil) -> AnyPublisher<[RepoItem], GithubReposNetworkingError> {
         let isFiltering = phrase != nil
         let phrase = phrase?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         let repos = [RepoItem.repoItem, RepoItem.repoItem2]
@@ -24,7 +24,7 @@ final class GithubRepos: ObservableObject {
 
         return Just(repos)
             .delay(for: isFiltering ? 0.0 : simulatedDelay, scheduler: RunLoop.main)
-            .setFailureType(to: GithubReposError.self)
+            .setFailureType(to: GithubReposNetworkingError.self)
             .eraseToAnyPublisher()
     }
 }
