@@ -8,7 +8,7 @@
 import Foundation
 
 enum AppScreenState: Codable {
-    case login(LoginState)
+    case login
     case home(HomeState)
     case userProfile(UserDetailsState)
     case error(ErrorState)
@@ -17,7 +17,7 @@ enum AppScreenState: Codable {
 extension AppScreenState: CustomStringConvertible {
     var description: String {
         switch self {
-        case .login(let state): return "login(isLoading=\(state.isLoading))"
+        case .login: return "login"
         case .home(let state): return "home(isLoading=\(state.isLoading))"
         case .userProfile(let state): return "userProfile(\(state.details?.name ?? "-"), isLoading=\(state.isLoading))"
         case .error(let state): return "error\(state.errorDescription)"
@@ -31,7 +31,6 @@ extension AppScreenState {
         case (.login, .login): return true
         case (.home, .home): return true
         case (.error, .error): return true
-        case (.userProfile(let state), .userProfile(let id)): return state.userId == id
         case (.home, _), (.userProfile, _), (.login, _), (.error, _): return false
         }
     }

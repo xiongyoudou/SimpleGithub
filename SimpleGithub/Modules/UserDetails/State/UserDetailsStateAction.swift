@@ -8,6 +8,6 @@
 import Foundation
 
 enum UserDetailsStateAction: Action {
-    case fetchUserProfile(userId: UUID)
-    case didReceiveUserProfile(user: User)
+    case fetchUserProfile(accessToken: String)
+    case didReceiveUserProfile(user: GitHubUser)
 }

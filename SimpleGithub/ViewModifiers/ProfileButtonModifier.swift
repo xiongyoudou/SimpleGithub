@@ -15,7 +15,7 @@ struct ProfileButtonModifier: ViewModifier {
                 Button(action: {
                     print("click me")
                 }) {
-                    NavigationLink(destination: UserDetailsView(userId: UUID())) {
+                    NavigationLink(destination: UserDetailsView()) {
                         Image(systemName: "person.circle")
                             .foregroundColor(.blue)
                     }

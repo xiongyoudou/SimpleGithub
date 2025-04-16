@@ -11,7 +11,7 @@ public struct HomeView: View {
     @EnvironmentObject var store: Store<AppState>
     var state: HomeState? { store.state.screenState(for: .home) }
 
-    var noEpisodesPlaceholder: some View {
+    var noReposPlaceholder: some View {
         Text("Could not find episodes")
             .font(.title2)
             .foregroundColor(.secondary)
@@ -22,7 +22,7 @@ public struct HomeView: View {
     var searchBar: some View {
         Text("")
             .searchable(
-                text: Binding(get: { state?.searchText ?? "" }, set: { store.dispatch(HomeStateAction.filterEpisodes(phrase: $0)) }),
+                text: Binding(get: { state?.searchText ?? "" }, set: { store.dispatch(HomeStateAction.filterRepos(accessToken: state?.accessToken ?? "", phrase: $0)) }),
                 placement: .navigationBarDrawer(displayMode: .always)
             )
             .disableAutocorrection(true)
@@ -34,7 +34,7 @@ public struct HomeView: View {
             
             if let state = state, !state.isLoading {
                 if state.repos.isEmpty {
-                    noEpisodesPlaceholder.animation(nil, value: UUID())
+                    noReposPlaceholder.animation(nil, value: UUID())
                 } else {
                     createReposList()
                 }
@@ -45,7 +45,7 @@ public struct HomeView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Repos")
         .addProfileButton()
-        .onLoad { store.dispatch(HomeStateAction.fetchRepos) }
+        .onLoad { store.dispatch(HomeStateAction.fetchRepos(accessToken: state?.accessToken ?? "")) }
     }
 
     private func createReposList() -> some View {
@@ -53,33 +53,17 @@ public struct HomeView: View {
             ForEach(state?.repos ?? []) { repo in
                 ZStack {
                     episodeRow(for: repo)
-//                    navigation(for: repo)
                 }.listRowSeparator(.hidden)
             }
         }.listStyle(.plain)
     }
 
-    private func episodeRow(for repo: RepoItem) -> some View {
+    private func episodeRow(for repo: GitHubRepo) -> some View {
         RepoView(repoItem: repo)
             .cornerRadius(8.0)
             .padding(.bottom, 6.0)
             .padding(.horizontal, 6.0)
     }
-
-//    private func navigation(for episode: RepoItem) -> some View {
-//        NavigationLink(
-//            isActive: Binding(
-//                get: { episode.id == state?.presentedEpisodeId },
-//                set: { isActive in
-//                    let currentValue = episode.id == state?.presentedEpisodeId
-//                    guard currentValue != isActive, !isActive else { return }
-//                    store.dispatch(ActiveScreensStateAction.dismissScreen(.episode(id: episode.id)))
-//                }
-//            ),
-//            destination: { EpisodeDetailsLoadingView(episodeId: episode.id) },
-//            label: {}
-//        ).hidden()
-//    }
 }
 
 struct HomeView_Previews: PreviewProvider {

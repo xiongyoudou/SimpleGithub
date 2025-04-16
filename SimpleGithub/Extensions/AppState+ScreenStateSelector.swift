@@ -12,10 +12,24 @@ extension AppState {
         return activeScreens.screens
             .compactMap {
                 switch ($0, screen) {
-                case (.login(let state), .login): return state as? State
+                case (.login, .login): return nil
                 case (.home(let state), .home): return state as? State
-                case (.userProfile(let state), .userProfile(let id)) where state.userId == id: return state as? State
+                case (.userProfile(let state), .userProfile): return state as? State
                 case (.error(let state), .error): return state as? State
+                default: return nil
+                }
+            }
+            .first
+    }
+}
+
+
+extension ActiveScreensState {
+    func homeScreenState(for screen: AppScreen) -> HomeState? {
+        return screens
+            .compactMap {
+                switch ($0, screen) {
+                case (.home(let state), .home): return state as? HomeState
                 default: return nil
                 }
             }

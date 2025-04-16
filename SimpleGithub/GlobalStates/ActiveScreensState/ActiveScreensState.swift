@@ -13,6 +13,6 @@ struct ActiveScreensState: Codable {
 
 extension ActiveScreensState {
     init() {
-        screens = [.login(LoginState())]
+        screens = [.login]
     }
 }

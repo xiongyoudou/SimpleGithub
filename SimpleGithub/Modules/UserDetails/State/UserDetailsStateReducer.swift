@@ -12,15 +12,13 @@ extension UserDetailsState {
         guard let action = action as? UserDetailsStateAction else { return state }
 
         switch action {
-        case .fetchUserProfile(let id):
+        case .fetchUserProfile(let token):
             return UserDetailsState(
-                userId: id,
                 details: nil,
                 isLoading: true
             )
         case .didReceiveUserProfile(let userDetails):
             return UserDetailsState(
-                userId: state.userId,
                 details: userDetails,
                 isLoading: false
             )

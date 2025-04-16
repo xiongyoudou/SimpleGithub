@@ -7,15 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49012DB22DAF30E6000F1B02 /* LoginMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DB12DAF30E6000F1B02 /* LoginMiddleware.swift */; };
 		49012DB62DAF3332000F1B02 /* UserInfoNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DB42DAF3332000F1B02 /* UserInfoNetworking.swift */; };
 		49012DB72DAF3332000F1B02 /* GithubReposNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DB52DAF3332000F1B02 /* GithubReposNetworking.swift */; };
+		49012DBA2DAF51D1000F1B02 /* JWTKit in Frameworks */ = {isa = PBXBuildFile; productRef = 49012DB92DAF51D1000F1B02 /* JWTKit */; };
+		49012DBE2DAF815B000F1B02 /* RepoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DBC2DAF815B000F1B02 /* RepoItem.swift */; };
+		49012DBF2DAF815B000F1B02 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DBD2DAF815B000F1B02 /* User.swift */; };
 		4919821D2DAE3892004A8944 /* SimpleGithubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981CC2DAE3892004A8944 /* SimpleGithubApp.swift */; };
 		4919821E2DAE3892004A8944 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981CD2DAE3892004A8944 /* Store.swift */; };
 		4919821F2DAE3892004A8944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491981CE2DAE3892004A8944 /* Assets.xcassets */; };
 		491982212DAE3892004A8944 /* GithubReposMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981D12DAE3892004A8944 /* GithubReposMiddleware.swift */; };
 		491982232DAE3892004A8944 /* LoggerMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981D32DAE3892004A8944 /* LoggerMiddleware.swift */; };
-		491982292DAE3893004A8944 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981DB2DAE3892004A8944 /* User.swift */; };
 		4919822B2DAE3893004A8944 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491981DE2DAE3892004A8944 /* Preview Assets.xcassets */; };
 		4919822C2DAE3893004A8944 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981E02DAE3892004A8944 /* Publisher.swift */; };
 		4919822D2DAE3893004A8944 /* AppState+ScreenStateSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981E12DAE3892004A8944 /* AppState+ScreenStateSelector.swift */; };
@@ -42,7 +43,6 @@
 		491982502DAE3893004A8944 /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919821A2DAE3892004A8944 /* View+Modifiers.swift */; };
 		491982512DAE3893004A8944 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919821B2DAE3892004A8944 /* ViewDidLoadModifier.swift */; };
 		491982542DAE3E90004A8944 /* ProfileButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491982532DAE3E90004A8944 /* ProfileButtonModifier.swift */; };
-		49BFCB782DAE771500A3A8B6 /* RepoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB772DAE771400A3A8B6 /* RepoItem.swift */; };
 		49BFCB7B2DAE785700A3A8B6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB7A2DAE785700A3A8B6 /* HomeView.swift */; };
 		49BFCB7D2DAE78DB00A3A8B6 /* RepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB7C2DAE78DB00A3A8B6 /* RepoView.swift */; };
 		49BFCB882DAE913900A3A8B6 /* ErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB822DAE913900A3A8B6 /* ErrorState.swift */; };
@@ -50,22 +50,20 @@
 		49BFCB8E2DAF164400A3A8B6 /* ErrorStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB8C2DAF164400A3A8B6 /* ErrorStateReducer.swift */; };
 		49F10DFF2DAE6AC0006E7217 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 49F10DFE2DAE6AC0006E7217 /* Alamofire */; };
 		49F10E022DAE6AE8006E7217 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 49F10E012DAE6AE8006E7217 /* SwiftyJSON */; };
-		49F10E072DAE6C2B006E7217 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F10E042DAE6C2B006E7217 /* LoginState.swift */; };
-		49F10E082DAE6C2B006E7217 /* LoginStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F10E052DAE6C2B006E7217 /* LoginStateReducer.swift */; };
-		49F10E092DAE6C2B006E7217 /* LoginStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F10E062DAE6C2B006E7217 /* LoginStateAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1631CF1927539BB70046BF66 /* SimpleGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		49012DB12DAF30E6000F1B02 /* LoginMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginMiddleware.swift; sourceTree = "<group>"; };
 		49012DB42DAF3332000F1B02 /* UserInfoNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoNetworking.swift; sourceTree = "<group>"; };
 		49012DB52DAF3332000F1B02 /* GithubReposNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubReposNetworking.swift; sourceTree = "<group>"; };
+		49012DBB2DAF550B000F1B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		49012DBC2DAF815B000F1B02 /* RepoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoItem.swift; sourceTree = "<group>"; };
+		49012DBD2DAF815B000F1B02 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		491981CC2DAE3892004A8944 /* SimpleGithubApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleGithubApp.swift; sourceTree = "<group>"; };
 		491981CD2DAE3892004A8944 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		491981CE2DAE3892004A8944 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		491981D12DAE3892004A8944 /* GithubReposMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubReposMiddleware.swift; sourceTree = "<group>"; };
 		491981D32DAE3892004A8944 /* LoggerMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerMiddleware.swift; sourceTree = "<group>"; };
-		491981DB2DAE3892004A8944 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		491981DE2DAE3892004A8944 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		491981E02DAE3892004A8944 /* Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		491981E12DAE3892004A8944 /* AppState+ScreenStateSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppState+ScreenStateSelector.swift"; sourceTree = "<group>"; };
@@ -92,15 +90,11 @@
 		4919821A2DAE3892004A8944 /* View+Modifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
 		4919821B2DAE3892004A8944 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		491982532DAE3E90004A8944 /* ProfileButtonModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileButtonModifier.swift; sourceTree = "<group>"; };
-		49BFCB772DAE771400A3A8B6 /* RepoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoItem.swift; sourceTree = "<group>"; };
 		49BFCB7A2DAE785700A3A8B6 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		49BFCB7C2DAE78DB00A3A8B6 /* RepoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoView.swift; sourceTree = "<group>"; };
 		49BFCB822DAE913900A3A8B6 /* ErrorState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorState.swift; sourceTree = "<group>"; };
 		49BFCB852DAE913900A3A8B6 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		49BFCB8C2DAF164400A3A8B6 /* ErrorStateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorStateReducer.swift; sourceTree = "<group>"; };
-		49F10E042DAE6C2B006E7217 /* LoginState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
-		49F10E052DAE6C2B006E7217 /* LoginStateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStateReducer.swift; sourceTree = "<group>"; };
-		49F10E062DAE6C2B006E7217 /* LoginStateAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStateAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49012DBA2DAF51D1000F1B02 /* JWTKit in Frameworks */,
 				49F10E022DAE6AE8006E7217 /* SwiftyJSON in Frameworks */,
 				49F10DFF2DAE6AC0006E7217 /* Alamofire in Frameworks */,
 			);
@@ -144,6 +139,7 @@
 		491981CA2DAE3892004A8944 /* SimpleGithub */ = {
 			isa = PBXGroup;
 			children = (
+				49012DBB2DAF550B000F1B02 /* Info.plist */,
 				49012DB32DAF3332000F1B02 /* Networking */,
 				491981CB2DAE3892004A8944 /* App */,
 				491981CE2DAE3892004A8944 /* Assets.xcassets */,
@@ -171,7 +167,6 @@
 		491981CF2DAE3892004A8944 /* Middlewares */ = {
 			isa = PBXGroup;
 			children = (
-				49012DB12DAF30E6000F1B02 /* LoginMiddleware.swift */,
 				491981D12DAE3892004A8944 /* GithubReposMiddleware.swift */,
 				491981D32DAE3892004A8944 /* LoggerMiddleware.swift */,
 			);
@@ -181,8 +176,8 @@
 		491981D72DAE3892004A8944 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				491981DB2DAE3892004A8944 /* User.swift */,
-				49BFCB772DAE771400A3A8B6 /* RepoItem.swift */,
+				49012DBC2DAF815B000F1B02 /* RepoItem.swift */,
+				49012DBD2DAF815B000F1B02 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -376,9 +371,6 @@
 		49F10E032DAE6C2B006E7217 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				49F10E042DAE6C2B006E7217 /* LoginState.swift */,
-				49F10E052DAE6C2B006E7217 /* LoginStateReducer.swift */,
-				49F10E062DAE6C2B006E7217 /* LoginStateAction.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -402,6 +394,7 @@
 			packageProductDependencies = (
 				49F10DFE2DAE6AC0006E7217 /* Alamofire */,
 				49F10E012DAE6AE8006E7217 /* SwiftyJSON */,
+				49012DB92DAF51D1000F1B02 /* JWTKit */,
 			);
 			productName = ReduxDemo;
 			productReference = 1631CF1927539BB70046BF66 /* SimpleGithub.app */;
@@ -434,6 +427,7 @@
 			packageReferences = (
 				49F10DFD2DAE6AC0006E7217 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				49F10E002DAE6AE8006E7217 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				49012DB82DAF51D1000F1B02 /* XCRemoteSwiftPackageReference "jwt-kit" */,
 			);
 			productRefGroup = 1631CF1A27539BB70046BF66 /* Products */;
 			projectDirPath = "";
@@ -471,37 +465,33 @@
 				4919824F2DAE3893004A8944 /* LoginView.swift in Sources */,
 				4919822C2DAE3893004A8944 /* Publisher.swift in Sources */,
 				491982322DAE3893004A8944 /* CenteringView.swift in Sources */,
-				49012DB22DAF30E6000F1B02 /* LoginMiddleware.swift in Sources */,
 				491982542DAE3E90004A8944 /* ProfileButtonModifier.swift in Sources */,
 				491982372DAE3893004A8944 /* ActiveScreensStateReducer.swift in Sources */,
 				491982502DAE3893004A8944 /* View+Modifiers.swift in Sources */,
+				49012DBE2DAF815B000F1B02 /* RepoItem.swift in Sources */,
 				491982332DAE3893004A8944 /* AppState.swift in Sources */,
 				49BFCB882DAE913900A3A8B6 /* ErrorState.swift in Sources */,
 				49BFCB8A2DAE913900A3A8B6 /* ErrorView.swift in Sources */,
 				49BFCB7B2DAE785700A3A8B6 /* HomeView.swift in Sources */,
-				49F10E082DAE6C2B006E7217 /* LoginStateReducer.swift in Sources */,
+				49012DBF2DAF815B000F1B02 /* User.swift in Sources */,
 				491982362DAE3893004A8944 /* ActiveScreensState.swift in Sources */,
 				49012DB72DAF3332000F1B02 /* GithubReposNetworking.swift in Sources */,
 				491982232DAE3892004A8944 /* LoggerMiddleware.swift in Sources */,
 				491982482DAE3893004A8944 /* UserDetailsStateReducer.swift in Sources */,
 				4919823C2DAE3893004A8944 /* HomeState.swift in Sources */,
-				49BFCB782DAE771500A3A8B6 /* RepoItem.swift in Sources */,
 				491982312DAE3893004A8944 /* SpinnerView.swift in Sources */,
 				491982342DAE3893004A8944 /* AppStateReducer.swift in Sources */,
 				491982472DAE3893004A8944 /* UserDetailsState.swift in Sources */,
-				491982292DAE3893004A8944 /* User.swift in Sources */,
 				4919823B2DAE3893004A8944 /* HomeStateReducer.swift in Sources */,
 				4919822F2DAE3893004A8944 /* UIApplication.swift in Sources */,
 				491982212DAE3892004A8944 /* GithubReposMiddleware.swift in Sources */,
 				4919822E2DAE3893004A8944 /* AnyCancellable.swift in Sources */,
 				491982462DAE3893004A8944 /* UserDetailsStateAction.swift in Sources */,
-				49F10E092DAE6C2B006E7217 /* LoginStateAction.swift in Sources */,
 				491982392DAE3893004A8944 /* AppScreenState.swift in Sources */,
 				491982492DAE3893004A8944 /* UserDetailsView.swift in Sources */,
 				4919821E2DAE3892004A8944 /* Store.swift in Sources */,
 				4919822D2DAE3893004A8944 /* AppState+ScreenStateSelector.swift in Sources */,
 				491982302DAE3893004A8944 /* Color.swift in Sources */,
-				49F10E072DAE6C2B006E7217 /* LoginState.swift in Sources */,
 				49012DB62DAF3332000F1B02 /* UserInfoNetworking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,6 +626,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SimpleGithub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -665,6 +656,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SimpleGithub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -707,6 +699,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		49012DB82DAF51D1000F1B02 /* XCRemoteSwiftPackageReference "jwt-kit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/jwt-kit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		49F10DFD2DAE6AC0006E7217 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -726,6 +726,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		49012DB92DAF51D1000F1B02 /* JWTKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49012DB82DAF51D1000F1B02 /* XCRemoteSwiftPackageReference "jwt-kit" */;
+			productName = JWTKit;
+		};
 		49F10DFE2DAE6AC0006E7217 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 49F10DFD2DAE6AC0006E7217 /* XCRemoteSwiftPackageReference "Alamofire" */;

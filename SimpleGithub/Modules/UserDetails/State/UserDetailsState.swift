@@ -8,14 +8,12 @@
 import Foundation
 
 struct UserDetailsState: Codable {
-    let userId: UUID
-    let details: User?
+    let details: GitHubUser?
     let isLoading: Bool
 }
 
 extension UserDetailsState {
-    init(id: UUID) {
-        userId = id
+    init() {
         details = nil
         isLoading = true
     }

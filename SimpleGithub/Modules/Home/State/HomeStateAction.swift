@@ -8,8 +8,9 @@
 import Foundation
 
 enum HomeStateAction: Action {
-    case fetchRepos
-    case didReceiveRepos([RepoItem])
+    case updateAccessToken(String)
+    case fetchRepos(accessToken: String)
+    case didReceiveRepos([GitHubRepo])
     case updateSearchText(String)
-    case filterEpisodes(phrase: String)
+    case filterRepos(accessToken: String, phrase: String)
 }

@@ -10,7 +10,7 @@ import Foundation
 enum AppScreen {
     case login
     case home
-    case userProfile(id: UUID)
+    case userProfile
     case error
 }
 

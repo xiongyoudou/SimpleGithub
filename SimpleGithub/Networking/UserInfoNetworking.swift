@@ -14,20 +14,26 @@ enum UserInfoNetworkingError: Error {
 }
 
 final class UserInfoNetworking: ObservableObject {
-    private let simulatedDelay: RunLoop.SchedulerTimeType.Stride = 1.0
-
-    private let users: [User] = [User.mock, User.mock2]
-
-    func fetchUser(id: UUID) -> AnyPublisher<User, UserInfoNetworkingError> {
-        if let user = users.first(where: { $0.id == id }) {
-            return Just(user)
-                .delay(for: simulatedDelay, scheduler: RunLoop.main)
-                .setFailureType(to: UserInfoNetworkingError.self)
-                .eraseToAnyPublisher()
-        } else {
-            return Fail(error: UserInfoNetworkingError.couldNotFind)
-                .delay(for: simulatedDelay, scheduler: RunLoop.main)
-                .eraseToAnyPublisher()
-        }
+    public func requestUserInfo(accessToken: String, completion: @escaping (Result<GitHubUser, Error>) -> Void){
+        let userURL = URL(string: "https://api.github.com/user")!
+        var request = URLRequest(url: userURL)
+        request.setValue("token \(accessToken)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let user = try JSONDecoder().decode(GitHubUser.self, from: data)
+                    completion(.success(user))
+                } catch {
+                    completion(.failure(error))
+                    print("Error decoding user: \(error)")
+                }
+            }
+        }.resume()
     }
 }

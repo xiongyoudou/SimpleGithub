@@ -8,52 +8,56 @@
 import SwiftUI
 
 struct LoginView: View {
-    
     @EnvironmentObject var store: Store<AppState>
-    var state: LoginState? { store.state.screenState(for: .login) }
-    
-    @State private var username: String = ""
-    @State private var password: String = ""
+    @StateObject private var authManager = GitHubAuthManager()
+    @State private var isLoading = false
+    @State private var currentToken: String?
     
     var body: some View {
-        VStack(spacing: 20) {
-            if let state = state, !state.isLoading {
-                
-                Text("Login")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.bottom, 40)
-                
-                TextField("Username", text: $username)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                    .padding(.horizontal)
-                
-                SecureField("password", text: $password)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
-                
-                Button(action: login) {
-                    Text("Login")
+        VStack {
+            if isLoading {
+                SpinnerView()
+            } else {
+                VStack(spacing: 60) {
+                    Spacer()
+                    Image("logo")
+                        .resizable()
+                        .frame(width: 140, height: 140)
+                    Button(action: {
+                        isLoading = true
+                        authManager.startGitHubLogin()
+                    }) {
+                        HStack(spacing: 12) {
+                            Text("login with github")
+                                .font(.headline)
+                        }
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.blue)
+                        .background(Color.black)
                         .foregroundColor(.white)
                         .cornerRadius(10)
+                        .shadow(radius: 4)
+                    }
+                    .padding(.horizontal, 40)
+                    Spacer()
                 }
-                .padding(.horizontal)
-                .disabled(username.isEmpty || password.isEmpty)
-                Spacer()
-                    .padding(.top, 50)
             }
-            else {
-                SpinnerView()
-            }
+            NavigationLink(
+                destination: HomeView(),
+                isActive: Binding(
+                    get: { authManager.isAuthenticated && currentToken != nil },
+                    set: { _ in }
+                ),
+                label: {}
+            )
         }
-    }
-    
-    private func login() {
-        store.dispatch(LoginStateAction.loginToGithub)
+        .onOpenURL { url in
+            authManager.handleCallback(url: url)
+        }
+        .onChange(of: authManager.accessToken) { newToken in
+            isLoading = false
+            currentToken = newToken
+            store.dispatch(HomeStateAction.updateAccessToken(newToken ?? ""))
+        }
     }
 }

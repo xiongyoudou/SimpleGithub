@@ -8,52 +8,38 @@
 import SwiftUI
 
 struct RepoView : View {
-    let repoItem: RepoItem
-
-//    var posterView: some View {
-//        Image(repoItem.s)
-//            .resizable()
-//            .aspectRatio(contentMode: .fill)
-//            .frame(maxWidth: 120.0)
-//    }
+    let repoItem: GitHubRepo
 
     var headerView: some View {
         VStack(alignment: .leading, spacing: 5.0) {
             Text(repoItem.name)
                 .minimumScaleFactor(0.5)
                 .font(.headline)
+                .foregroundColor(.blue)
 
-            Text("Next episode: " +
-                "\(repoItem.description)")
+            Text("Description: " +
+                 "\(repoItem.description ?? "")")
                 .font(.footnote)
-                .foregroundColor(.secondary)
+                .foregroundColor(.black)
+                .multilineTextAlignment(.leading)
+                .lineLimit(nil)
         }
     }
 
     var body: some View {
         ZStack {
-            Color(white: 0.1, opacity: 1.0).ignoresSafeArea()
+//            Color(white: 0.4, opacity: 1.0).ignoresSafeArea()
             HStack {
-//                posterView
                 VStack(alignment: .leading, spacing: 5) {
                     headerView
                     Spacer()
                     Spacer()
                 }
                 .padding(16)
-
                 Spacer()
             }
+            .background(.gray)
         }
         .lineLimit(1)
-    }
-}
-
-struct ShowView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            RepoView(repoItem: .repoItem)
-                .frame(width: .infinity, height: 170.0, alignment: .center)
-        }
     }
 }

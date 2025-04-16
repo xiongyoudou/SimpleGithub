@@ -8,9 +8,10 @@
 import Foundation
 
 struct HomeState: Codable {
-    let repos: [RepoItem]
+    let repos: [GitHubRepo]
     let isLoading: Bool
     let searchText: String
+    let accessToken: String?
 }
 
 extension HomeState {
@@ -18,5 +19,6 @@ extension HomeState {
         repos = []
         isLoading = true
         searchText = ""
+        accessToken = nil
     }
 }
