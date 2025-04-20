@@ -10,7 +10,7 @@ import SwiftUI
 let store = Store(
     initial: AppState(),
     reducer: AppState.reducer,
-    middlewares: [Middlewares.githubReposMiddleware, Middlewares.logger]
+    middlewares: [Middlewares.authMidleware, Middlewares.githubReposMiddleware, Middlewares.logger]
 )
 
 struct AppView: View {

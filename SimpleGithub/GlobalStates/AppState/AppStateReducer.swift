@@ -10,7 +10,10 @@ import Foundation
 extension AppState {
     static let reducer: Reducer<Self> = { state, action in
         AppState(
-            activeScreens: ActiveScreensState.reducer(state.activeScreens, action)
+            loginState: LoginState.reducer(state.loginState,action),
+            homeState: HomeState.reducer(state.homeState, action),
+            userDetailsState: UserDetailsState.reducer(state.userDetailsState, action),
+            errorState: ErrorState.reducer(state.errorState, action)
         )
     }
 }

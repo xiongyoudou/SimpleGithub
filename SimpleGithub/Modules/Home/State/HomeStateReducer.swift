@@ -9,36 +9,33 @@ import Foundation
 
 extension HomeState {
     static let reducer: Reducer<Self> = { state, action in
+        guard let action = action as? HomeStateAction else { return state }
+        
         switch action {
-        case HomeStateAction.updateAccessToken(let accessToken):
-            return HomeState(
-                repos: [],
-                isLoading: state.isLoading,
-                searchText: state.searchText,
-                accessToken: accessToken
-            )
         case HomeStateAction.fetchRepos(let accessToken):
             return HomeState(
                 repos: [],
+                filterRepos: [],
                 isLoading: true,
-                searchText: state.searchText,
-                accessToken: state.accessToken
+                searchText: state.searchText
             )
         case HomeStateAction.didReceiveRepos(let repos):
             return HomeState(
                 repos: repos,
+                filterRepos: repos,
                 isLoading: false,
-                searchText: state.searchText,
-                accessToken: state.accessToken
+                searchText: state.searchText
             )
-//        case HomeStateAction.filterRepos(let accessToken, let phrase), HomeStateAction.updateSearchText(let phrase):
-//            return HomeState(
-//                repos: state.repos,
-//                isLoading: phrase != "",
-//                searchText: phrase
-//            )
-        default:
-            return state
+        case HomeStateAction.filterRepos(let phrase):
+            let filteredRepos = state.repos.filter { repo in
+                phrase.isEmpty || repo.name.localizedCaseInsensitiveContains(phrase)
+            }
+            return HomeState(
+                repos: state.repos,
+                filterRepos: filteredRepos,
+                isLoading: false,
+                searchText: phrase
+            )
         }
     }
 }

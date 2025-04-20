@@ -9,16 +9,16 @@ import Foundation
 
 struct HomeState: Codable {
     let repos: [GitHubRepo]
+    let filterRepos: [GitHubRepo]
     let isLoading: Bool
     let searchText: String
-    let accessToken: String?
 }
 
 extension HomeState {
     init() {
         repos = []
+        filterRepos = []
         isLoading = true
         searchText = ""
-        accessToken = nil
     }
 }

@@ -9,6 +9,8 @@ import Foundation
 
 extension ErrorState {
     static let reducer: Reducer<Self> = { state, action in
-        state
+        guard let action = action as? ErrorStateAction else { return state }
+
+        return state
     }
 }

@@ -8,21 +8,13 @@
 import SwiftUI
 
 public struct ErrorView: View {
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var store: Store<AppState>
-    var state: ErrorState? { store.state.screenState(for: .error) }
-
+        
     public var body: some View {
-        ZStack {
-            
-            
-        }
-    }
-}
-
-struct ErrorView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            ErrorView().environmentObject(store)
+        Button("Go Back") {
+            dismiss()
+//            store.dispatch(ErrorStateAction.navigateBack)
         }
     }
 }

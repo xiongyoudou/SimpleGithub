@@ -9,8 +9,8 @@ import SwiftUI
 
 struct UserDetailsView: View {
     @EnvironmentObject var store: Store<AppState>
-    var state: UserDetailsState? { store.state.screenState(for: .userProfile) }
-    var homeState: HomeState? { store.state.screenState(for: .home) }
+    var state: UserDetailsState? { store.state.userDetailsState }
+    var loginState: LoginState? {store.state.loginState}
 
     var body: some View {
         if let state = state, let userDetails = state.details, !state.isLoading {
@@ -40,7 +40,7 @@ struct UserDetailsView: View {
         } else {
             SpinnerView("Loading Profile")
                 .onLoad {
-                    store.dispatch(UserDetailsStateAction.fetchUserProfile(accessToken: homeState?.accessToken ?? ""))
+                    store.dispatch(UserDetailsStateAction.fetchUserProfile(accessToken: loginState?.accessToken ?? ""))
                 }
         }
     }
