@@ -12,8 +12,7 @@ extension AppState {
         AppState(
             loginState: LoginState.reducer(state.loginState,action),
             homeState: HomeState.reducer(state.homeState, action),
-            userDetailsState: UserDetailsState.reducer(state.userDetailsState, action),
-            errorState: ErrorState.reducer(state.errorState, action)
+            userDetailsState: UserDetailsState.reducer(state.userDetailsState, action)
         )
     }
 }

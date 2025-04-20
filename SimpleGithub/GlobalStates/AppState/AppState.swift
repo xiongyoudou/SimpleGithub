@@ -11,5 +11,4 @@ struct AppState: Codable {
     var loginState = LoginState()
     var homeState = HomeState()
     var userDetailsState = UserDetailsState()
-    var errorState = ErrorState()
 }

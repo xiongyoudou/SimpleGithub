@@ -17,7 +17,8 @@ extension LoginState {
         case .handleCallbackURL(let url):
             return state
         case .loginSucessWithToken(let accessToken):
-            return LoginState(authUrl:nil, isLoading: false, isLogined: true, accessToken: accessToken, error: nil)
+//            return LoginState(authUrl:nil, isLoading: false, isLogined: true, accessToken: accessToken, error: nil)
+            return LoginState(authUrl:nil, isLoading: false, isLogined: true, accessToken: nil, error: "error")
         case .loginFailed(let error):
             return LoginState(authUrl:nil, isLoading: false, isLogined: true, accessToken: nil, error: error)
         }

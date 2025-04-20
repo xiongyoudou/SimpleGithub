@@ -15,7 +15,6 @@
 		49012DC52DB2452B000F1B02 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DC22DB2452B000F1B02 /* LoginState.swift */; };
 		49012DC62DB2452B000F1B02 /* LoginStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DC32DB2452B000F1B02 /* LoginStateAction.swift */; };
 		49012DC72DB2452B000F1B02 /* LoginStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DC42DB2452B000F1B02 /* LoginStateReducer.swift */; };
-		49012DC92DB27FBC000F1B02 /* ErrorStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DC82DB27FBC000F1B02 /* ErrorStateAction.swift */; };
 		49012DD32DB47385000F1B02 /* AuthMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DD22DB47385000F1B02 /* AuthMiddleware.swift */; };
 		4919821D2DAE3892004A8944 /* SimpleGithubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981CC2DAE3892004A8944 /* SimpleGithubApp.swift */; };
 		4919821E2DAE3892004A8944 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981CD2DAE3892004A8944 /* Store.swift */; };
@@ -43,9 +42,7 @@
 		491982542DAE3E90004A8944 /* ProfileButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491982532DAE3E90004A8944 /* ProfileButtonModifier.swift */; };
 		49BFCB7B2DAE785700A3A8B6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB7A2DAE785700A3A8B6 /* HomeView.swift */; };
 		49BFCB7D2DAE78DB00A3A8B6 /* RepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB7C2DAE78DB00A3A8B6 /* RepoView.swift */; };
-		49BFCB882DAE913900A3A8B6 /* ErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB822DAE913900A3A8B6 /* ErrorState.swift */; };
 		49BFCB8A2DAE913900A3A8B6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB852DAE913900A3A8B6 /* ErrorView.swift */; };
-		49BFCB8E2DAF164400A3A8B6 /* ErrorStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB8C2DAF164400A3A8B6 /* ErrorStateReducer.swift */; };
 		49F10DFF2DAE6AC0006E7217 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 49F10DFE2DAE6AC0006E7217 /* Alamofire */; };
 		49F10E022DAE6AE8006E7217 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 49F10E012DAE6AE8006E7217 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
@@ -60,7 +57,6 @@
 		49012DC22DB2452B000F1B02 /* LoginState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		49012DC32DB2452B000F1B02 /* LoginStateAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStateAction.swift; sourceTree = "<group>"; };
 		49012DC42DB2452B000F1B02 /* LoginStateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStateReducer.swift; sourceTree = "<group>"; };
-		49012DC82DB27FBC000F1B02 /* ErrorStateAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorStateAction.swift; sourceTree = "<group>"; };
 		49012DD22DB47385000F1B02 /* AuthMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthMiddleware.swift; sourceTree = "<group>"; };
 		491981CC2DAE3892004A8944 /* SimpleGithubApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleGithubApp.swift; sourceTree = "<group>"; };
 		491981CD2DAE3892004A8944 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -88,9 +84,7 @@
 		491982532DAE3E90004A8944 /* ProfileButtonModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileButtonModifier.swift; sourceTree = "<group>"; };
 		49BFCB7A2DAE785700A3A8B6 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		49BFCB7C2DAE78DB00A3A8B6 /* RepoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoView.swift; sourceTree = "<group>"; };
-		49BFCB822DAE913900A3A8B6 /* ErrorState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorState.swift; sourceTree = "<group>"; };
 		49BFCB852DAE913900A3A8B6 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		49BFCB8C2DAF164400A3A8B6 /* ErrorStateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorStateReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,20 +305,9 @@
 		49BFCB7E2DAE913900A3A8B6 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				49BFCB7F2DAE913900A3A8B6 /* State */,
 				49BFCB832DAE913900A3A8B6 /* View */,
 			);
 			path = Error;
-			sourceTree = "<group>";
-		};
-		49BFCB7F2DAE913900A3A8B6 /* State */ = {
-			isa = PBXGroup;
-			children = (
-				49BFCB822DAE913900A3A8B6 /* ErrorState.swift */,
-				49012DC82DB27FBC000F1B02 /* ErrorStateAction.swift */,
-				49BFCB8C2DAF164400A3A8B6 /* ErrorStateReducer.swift */,
-			);
-			path = State;
 			sourceTree = "<group>";
 		};
 		49BFCB832DAE913900A3A8B6 /* View */ = {
@@ -427,7 +410,6 @@
 				4919821D2DAE3892004A8944 /* SimpleGithubApp.swift in Sources */,
 				49BFCB7D2DAE78DB00A3A8B6 /* RepoView.swift in Sources */,
 				49012DC52DB2452B000F1B02 /* LoginState.swift in Sources */,
-				49BFCB8E2DAF164400A3A8B6 /* ErrorStateReducer.swift in Sources */,
 				4919823A2DAE3893004A8944 /* HomeStateAction.swift in Sources */,
 				491982512DAE3893004A8944 /* ViewDidLoadModifier.swift in Sources */,
 				4919824F2DAE3893004A8944 /* LoginView.swift in Sources */,
@@ -437,7 +419,6 @@
 				491982502DAE3893004A8944 /* View+Modifiers.swift in Sources */,
 				49012DBE2DAF815B000F1B02 /* RepoItem.swift in Sources */,
 				491982332DAE3893004A8944 /* AppState.swift in Sources */,
-				49BFCB882DAE913900A3A8B6 /* ErrorState.swift in Sources */,
 				49BFCB8A2DAE913900A3A8B6 /* ErrorView.swift in Sources */,
 				49BFCB7B2DAE785700A3A8B6 /* HomeView.swift in Sources */,
 				49012DBF2DAF815B000F1B02 /* User.swift in Sources */,
@@ -449,7 +430,6 @@
 				491982312DAE3893004A8944 /* SpinnerView.swift in Sources */,
 				491982342DAE3893004A8944 /* AppStateReducer.swift in Sources */,
 				491982472DAE3893004A8944 /* UserDetailsState.swift in Sources */,
-				49012DC92DB27FBC000F1B02 /* ErrorStateAction.swift in Sources */,
 				4919823B2DAE3893004A8944 /* HomeStateReducer.swift in Sources */,
 				4919822F2DAE3893004A8944 /* UIApplication.swift in Sources */,
 				49012DD32DB47385000F1B02 /* AuthMiddleware.swift in Sources */,
