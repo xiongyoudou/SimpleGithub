@@ -7,22 +7,47 @@
 
 import SwiftUI
 
-public struct ErrorView: View {
-    @EnvironmentObject var store: Store<AppState>
-    var state: ErrorState? { store.state.screenState(for: .error) }
-
-    public var body: some View {
-        ZStack {
+struct ErrorView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    let title: String
+    let message: String
+    let dismissAction: () -> Void
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .font(.system(size: 60))
+                .foregroundColor(.red)
+                .padding(.top, 40)
             
+            Text(title)
+                .font(.title.bold())
+                .multilineTextAlignment(.center)
             
+            Text(message)
+                .font(.body)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+            
+            Spacer()
+            
+            VStack(spacing: 15) {
+                Button(action: {
+                    dismiss()
+                }) {
+                    Text("返回")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+            }
+            .padding(.horizontal, 30)
+            .padding(.bottom, 30)
         }
-    }
-}
-
-struct ErrorView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            ErrorView().environmentObject(store)
-        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(.systemBackground))
+        .cornerRadius(20)
+        .shadow(radius: 10)
+        .padding(20)
     }
 }

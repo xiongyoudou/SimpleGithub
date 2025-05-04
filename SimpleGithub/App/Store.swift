@@ -18,7 +18,6 @@ typealias Reducer<State> = (State, Action) -> State
 typealias Middleware<State> = (State, Action, @escaping Dispatch) -> AnyPublisher<Action, Never>
 
 final class Store<State>: ObservableObject {
-    var isEnabled = true
 
     @Published private(set) var state: State
 
@@ -43,8 +42,6 @@ final class Store<State>: ObservableObject {
     }
 
     func dispatch(_ action: Action) {
-        guard isEnabled else { return }
-
         queue.sync {
             self.dispatch(self.state, action)
         }
@@ -52,7 +49,6 @@ final class Store<State>: ObservableObject {
 
     private func dispatch(_ currentState: State, _ action: Action) {
         let newState = reducer(currentState, action)
-
         middlewares.forEach { middleware in
             let key = UUID()
             middleware(newState, action, dispatch)
@@ -62,8 +58,10 @@ final class Store<State>: ObservableObject {
                 .store(in: &subscriptions, key: key)
         }
 
-        withAnimation {
-            state = newState
+        DispatchQueue.main.async { [self] in
+            withAnimation {
+                state = newState
+            }
         }
     }
 }

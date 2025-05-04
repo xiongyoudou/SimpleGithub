@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 extension Middlewares {
-    private static let githubRepos = GitHubAuthManager()
+    private static let githubRepos = GithubReposNetworking()
     private static let usersRepository = UserInfoNetworking()
     private static var searchDebouncer = CurrentValueSubject<String, Never>("")
     
@@ -24,18 +24,6 @@ extension Middlewares {
                 }
                 .ignoreError()
                 .eraseToAnyPublisher()
-        case HomeStateAction.filterRepos(let accessToken, let phrase):
-            // Cancelling previous request
-            searchDebouncer.send(completion: .finished)
-            searchDebouncer = CurrentValueSubject<String, Never>(phrase)
-            
-            return searchDebouncer
-                .debounce(for: phrase == "" ? 0.0 : 0.5, scheduler: RunLoop.main)
-                .first()
-                .flatMap { githubRepos.fetchReposWithKeyword(accessToken: accessToken, phrase: $0) }
-                .map { HomeStateAction.didReceiveRepos($0) }
-                .ignoreError()
-                .eraseToAnyPublisher()
         case UserDetailsStateAction.fetchUserProfile(let accessToken):
             usersRepository.requestUserInfo(accessToken: accessToken, completion: { result in
                 switch result {
@@ -46,8 +34,6 @@ extension Middlewares {
                     }
             })
             return Empty().eraseToAnyPublisher()
-//                .map { UserDetailsStateAction.didReceiveUserProfile(user: $0) }
-//                .eraseToAnyPublisher()
         default:
             return Empty().eraseToAnyPublisher()
         }

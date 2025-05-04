@@ -9,30 +9,8 @@ import Foundation
 import Combine
 import UIKit
 
-//enum GithubReposNetworkingError: Error {
-//    case unknown
-//    case couldNotFind
-//}
-//
-//
-//final class GithubReposNetworking: ObservableObject {
-//    private let simulatedDelay: RunLoop.SchedulerTimeType.Stride = 1.0
-//
-//    func fetchReposWithKeyword(phrase: String? = nil) -> AnyPublisher<[GitHubRepo], GithubReposNetworkingError> {
-//        let isFiltering = phrase != nil
-//        let phrase = phrase?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-//        let repos = [GitHubRepo.repoItem, GitHubRepo.repoItem2]
-//            .filter { phrase == "" || $0.name.lowercased().contains(phrase) }
-//
-//        return Just(repos)
-//            .delay(for: isFiltering ? 0.0 : simulatedDelay, scheduler: RunLoop.main)
-//            .setFailureType(to: GithubReposNetworkingError.self)
-//            .eraseToAnyPublisher()
-//    }
-//}
-
-
-class GitHubAuthManager: NSObject, ObservableObject {
+class GithubReposNetworking: NSObject, ObservableObject {
+    
     @Published var isAuthenticated = false
     @Published var accessToken: String?
     @Published var error: Error?
@@ -50,7 +28,7 @@ class GitHubAuthManager: NSObject, ObservableObject {
         UIApplication.shared.open(authURL)
     }
     
-    func handleCallback(url: URL) {
+    func handleCallback(url: URL, completion: @escaping (Result<String, AuthError>) -> Void) {
         guard url.scheme == callbackScheme else { return }
         
         let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
@@ -59,10 +37,10 @@ class GitHubAuthManager: NSObject, ObservableObject {
             return
         }
         
-        exchangeCodeForToken(code: code)
+        exchangeCodeForToken(code: code, completion: completion)
     }
     
-    private func exchangeCodeForToken(code: String) {
+    private func exchangeCodeForToken(code: String, completion: @escaping (Result<String, AuthError>) -> Void) {
         let tokenURL = URL(string: "https://github.com/login/oauth/access_token")!
         var request = URLRequest(url: tokenURL)
         request.httpMethod = "POST"
@@ -82,6 +60,7 @@ class GitHubAuthManager: NSObject, ObservableObject {
             if let error = error {
                 DispatchQueue.main.async {
                     self.error = error
+                    completion(.failure(.error(error.localizedDescription)))
                 }
                 return
             }
@@ -89,6 +68,7 @@ class GitHubAuthManager: NSObject, ObservableObject {
             guard let data = data else {
                 DispatchQueue.main.async {
                     self.error = AuthError.noData
+                    completion(.failure(.noData))
                 }
                 return
             }
@@ -97,11 +77,17 @@ class GitHubAuthManager: NSObject, ObservableObject {
                 let response = try JSONDecoder().decode(GitHubTokenResponse.self, from: data)
                 DispatchQueue.main.async {
                     self.accessToken = response.access_token
-                    self.isAuthenticated = true
+                    if let accessToken = self.accessToken {
+                        self.isAuthenticated = true
+                        completion(.success(accessToken))
+                    } else {
+                        completion(.failure(.missingCode))
+                    }
                 }
             } catch {
                 DispatchQueue.main.async {
                     self.error = error
+                    completion(.failure(.error(error.localizedDescription)))
                 }
             }
         }.resume()
@@ -154,6 +140,7 @@ struct GitHubTokenResponse: Codable {
 enum AuthError: Error {
     case missingCode
     case noData
+    case error(String)
 }
 
 

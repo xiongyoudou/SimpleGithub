@@ -9,7 +9,8 @@ import SwiftUI
 
 public struct HomeView: View {
     @EnvironmentObject var store: Store<AppState>
-    var state: HomeState? { store.state.screenState(for: .home) }
+    var state: HomeState? { store.state.homeState }
+    var loginState: LoginState? {store.state.loginState}
 
     var noReposPlaceholder: some View {
         Text("Could not find episodes")
@@ -22,7 +23,7 @@ public struct HomeView: View {
     var searchBar: some View {
         Text("")
             .searchable(
-                text: Binding(get: { state?.searchText ?? "" }, set: { store.dispatch(HomeStateAction.filterRepos(accessToken: state?.accessToken ?? "", phrase: $0)) }),
+                text: Binding(get: { state?.searchText ?? "" }, set: { store.dispatch(HomeStateAction.filterRepos(phrase: $0)) }),
                 placement: .navigationBarDrawer(displayMode: .always)
             )
             .disableAutocorrection(true)
@@ -45,12 +46,12 @@ public struct HomeView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Repos")
         .addProfileButton()
-        .onLoad { store.dispatch(HomeStateAction.fetchRepos(accessToken: state?.accessToken ?? "")) }
+        .onLoad { store.dispatch(HomeStateAction.fetchRepos(accessToken: loginState?.accessToken ?? "")) }
     }
 
     private func createReposList() -> some View {
         List {
-            ForEach(state?.repos ?? []) { repo in
+            ForEach(state?.filterRepos ?? []) { repo in
                 ZStack {
                     episodeRow(for: repo)
                 }.listRowSeparator(.hidden)

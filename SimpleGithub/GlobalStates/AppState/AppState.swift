@@ -8,11 +8,7 @@
 import Foundation
 
 struct AppState: Codable {
-    let activeScreens: ActiveScreensState
-}
-
-extension AppState {
-    init() {
-        activeScreens = ActiveScreensState()
-    }
+    var loginState = LoginState()
+    var homeState = HomeState()
+    var userDetailsState = UserDetailsState()
 }

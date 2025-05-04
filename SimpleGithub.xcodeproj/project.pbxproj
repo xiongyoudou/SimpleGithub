@@ -12,14 +12,16 @@
 		49012DBA2DAF51D1000F1B02 /* JWTKit in Frameworks */ = {isa = PBXBuildFile; productRef = 49012DB92DAF51D1000F1B02 /* JWTKit */; };
 		49012DBE2DAF815B000F1B02 /* RepoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DBC2DAF815B000F1B02 /* RepoItem.swift */; };
 		49012DBF2DAF815B000F1B02 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DBD2DAF815B000F1B02 /* User.swift */; };
+		49012DC52DB2452B000F1B02 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DC22DB2452B000F1B02 /* LoginState.swift */; };
+		49012DC62DB2452B000F1B02 /* LoginStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DC32DB2452B000F1B02 /* LoginStateAction.swift */; };
+		49012DC72DB2452B000F1B02 /* LoginStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DC42DB2452B000F1B02 /* LoginStateReducer.swift */; };
+		49012DD32DB47385000F1B02 /* AuthMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012DD22DB47385000F1B02 /* AuthMiddleware.swift */; };
 		4919821D2DAE3892004A8944 /* SimpleGithubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981CC2DAE3892004A8944 /* SimpleGithubApp.swift */; };
 		4919821E2DAE3892004A8944 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981CD2DAE3892004A8944 /* Store.swift */; };
 		4919821F2DAE3892004A8944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491981CE2DAE3892004A8944 /* Assets.xcassets */; };
 		491982212DAE3892004A8944 /* GithubReposMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981D12DAE3892004A8944 /* GithubReposMiddleware.swift */; };
 		491982232DAE3892004A8944 /* LoggerMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981D32DAE3892004A8944 /* LoggerMiddleware.swift */; };
-		4919822B2DAE3893004A8944 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 491981DE2DAE3892004A8944 /* Preview Assets.xcassets */; };
 		4919822C2DAE3893004A8944 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981E02DAE3892004A8944 /* Publisher.swift */; };
-		4919822D2DAE3893004A8944 /* AppState+ScreenStateSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981E12DAE3892004A8944 /* AppState+ScreenStateSelector.swift */; };
 		4919822E2DAE3893004A8944 /* AnyCancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981E22DAE3892004A8944 /* AnyCancellable.swift */; };
 		4919822F2DAE3893004A8944 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981E32DAE3892004A8944 /* UIApplication.swift */; };
 		491982302DAE3893004A8944 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981E42DAE3892004A8944 /* Color.swift */; };
@@ -27,11 +29,6 @@
 		491982322DAE3893004A8944 /* CenteringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981E72DAE3892004A8944 /* CenteringView.swift */; };
 		491982332DAE3893004A8944 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981EA2DAE3892004A8944 /* AppState.swift */; };
 		491982342DAE3893004A8944 /* AppStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981EB2DAE3892004A8944 /* AppStateReducer.swift */; };
-		491982352DAE3893004A8944 /* ActiveScreensStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981ED2DAE3892004A8944 /* ActiveScreensStateAction.swift */; };
-		491982362DAE3893004A8944 /* ActiveScreensState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981EE2DAE3892004A8944 /* ActiveScreensState.swift */; };
-		491982372DAE3893004A8944 /* ActiveScreensStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981EF2DAE3892004A8944 /* ActiveScreensStateReducer.swift */; };
-		491982382DAE3893004A8944 /* AppScreenStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981F12DAE3892004A8944 /* AppScreenStateReducer.swift */; };
-		491982392DAE3893004A8944 /* AppScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981F22DAE3892004A8944 /* AppScreenState.swift */; };
 		4919823A2DAE3893004A8944 /* HomeStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981F62DAE3892004A8944 /* HomeStateAction.swift */; };
 		4919823B2DAE3893004A8944 /* HomeStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981F72DAE3892004A8944 /* HomeStateReducer.swift */; };
 		4919823C2DAE3893004A8944 /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491981F82DAE3892004A8944 /* HomeState.swift */; };
@@ -45,9 +42,7 @@
 		491982542DAE3E90004A8944 /* ProfileButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491982532DAE3E90004A8944 /* ProfileButtonModifier.swift */; };
 		49BFCB7B2DAE785700A3A8B6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB7A2DAE785700A3A8B6 /* HomeView.swift */; };
 		49BFCB7D2DAE78DB00A3A8B6 /* RepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB7C2DAE78DB00A3A8B6 /* RepoView.swift */; };
-		49BFCB882DAE913900A3A8B6 /* ErrorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB822DAE913900A3A8B6 /* ErrorState.swift */; };
 		49BFCB8A2DAE913900A3A8B6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB852DAE913900A3A8B6 /* ErrorView.swift */; };
-		49BFCB8E2DAF164400A3A8B6 /* ErrorStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BFCB8C2DAF164400A3A8B6 /* ErrorStateReducer.swift */; };
 		49F10DFF2DAE6AC0006E7217 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 49F10DFE2DAE6AC0006E7217 /* Alamofire */; };
 		49F10E022DAE6AE8006E7217 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 49F10E012DAE6AE8006E7217 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
@@ -59,14 +54,16 @@
 		49012DBB2DAF550B000F1B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		49012DBC2DAF815B000F1B02 /* RepoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoItem.swift; sourceTree = "<group>"; };
 		49012DBD2DAF815B000F1B02 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		49012DC22DB2452B000F1B02 /* LoginState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
+		49012DC32DB2452B000F1B02 /* LoginStateAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStateAction.swift; sourceTree = "<group>"; };
+		49012DC42DB2452B000F1B02 /* LoginStateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStateReducer.swift; sourceTree = "<group>"; };
+		49012DD22DB47385000F1B02 /* AuthMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthMiddleware.swift; sourceTree = "<group>"; };
 		491981CC2DAE3892004A8944 /* SimpleGithubApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleGithubApp.swift; sourceTree = "<group>"; };
 		491981CD2DAE3892004A8944 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		491981CE2DAE3892004A8944 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		491981D12DAE3892004A8944 /* GithubReposMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubReposMiddleware.swift; sourceTree = "<group>"; };
 		491981D32DAE3892004A8944 /* LoggerMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerMiddleware.swift; sourceTree = "<group>"; };
-		491981DE2DAE3892004A8944 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		491981E02DAE3892004A8944 /* Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
-		491981E12DAE3892004A8944 /* AppState+ScreenStateSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppState+ScreenStateSelector.swift"; sourceTree = "<group>"; };
 		491981E22DAE3892004A8944 /* AnyCancellable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCancellable.swift; sourceTree = "<group>"; };
 		491981E32DAE3892004A8944 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		491981E42DAE3892004A8944 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -74,11 +71,6 @@
 		491981E72DAE3892004A8944 /* CenteringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteringView.swift; sourceTree = "<group>"; };
 		491981EA2DAE3892004A8944 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		491981EB2DAE3892004A8944 /* AppStateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateReducer.swift; sourceTree = "<group>"; };
-		491981ED2DAE3892004A8944 /* ActiveScreensStateAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveScreensStateAction.swift; sourceTree = "<group>"; };
-		491981EE2DAE3892004A8944 /* ActiveScreensState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveScreensState.swift; sourceTree = "<group>"; };
-		491981EF2DAE3892004A8944 /* ActiveScreensStateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveScreensStateReducer.swift; sourceTree = "<group>"; };
-		491981F12DAE3892004A8944 /* AppScreenStateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppScreenStateReducer.swift; sourceTree = "<group>"; };
-		491981F22DAE3892004A8944 /* AppScreenState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppScreenState.swift; sourceTree = "<group>"; };
 		491981F62DAE3892004A8944 /* HomeStateAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeStateAction.swift; sourceTree = "<group>"; };
 		491981F72DAE3892004A8944 /* HomeStateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeStateReducer.swift; sourceTree = "<group>"; };
 		491981F82DAE3892004A8944 /* HomeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
@@ -92,9 +84,7 @@
 		491982532DAE3E90004A8944 /* ProfileButtonModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileButtonModifier.swift; sourceTree = "<group>"; };
 		49BFCB7A2DAE785700A3A8B6 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		49BFCB7C2DAE78DB00A3A8B6 /* RepoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoView.swift; sourceTree = "<group>"; };
-		49BFCB822DAE913900A3A8B6 /* ErrorState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorState.swift; sourceTree = "<group>"; };
 		49BFCB852DAE913900A3A8B6 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		49BFCB8C2DAF164400A3A8B6 /* ErrorStateReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorStateReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,17 +130,16 @@
 			isa = PBXGroup;
 			children = (
 				49012DBB2DAF550B000F1B02 /* Info.plist */,
-				49012DB32DAF3332000F1B02 /* Networking */,
-				491981CB2DAE3892004A8944 /* App */,
 				491981CE2DAE3892004A8944 /* Assets.xcassets */,
+				491981CB2DAE3892004A8944 /* App */,
+				491981E82DAE3892004A8944 /* GlobalStates */,
 				491981CF2DAE3892004A8944 /* Middlewares */,
 				491981D72DAE3892004A8944 /* Models */,
-				491981DD2DAE3892004A8944 /* Preview Content */,
 				491981DF2DAE3892004A8944 /* Extensions */,
 				491981E52DAE3892004A8944 /* Components */,
-				491981E82DAE3892004A8944 /* GlobalStates */,
 				491981F32DAE3892004A8944 /* Modules */,
 				491982192DAE3892004A8944 /* ViewModifiers */,
+				49012DB32DAF3332000F1B02 /* Networking */,
 			);
 			path = SimpleGithub;
 			sourceTree = "<group>";
@@ -167,6 +156,7 @@
 		491981CF2DAE3892004A8944 /* Middlewares */ = {
 			isa = PBXGroup;
 			children = (
+				49012DD22DB47385000F1B02 /* AuthMiddleware.swift */,
 				491981D12DAE3892004A8944 /* GithubReposMiddleware.swift */,
 				491981D32DAE3892004A8944 /* LoggerMiddleware.swift */,
 			);
@@ -182,19 +172,10 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		491981DD2DAE3892004A8944 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				491981DE2DAE3892004A8944 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
 		491981DF2DAE3892004A8944 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				491981E02DAE3892004A8944 /* Publisher.swift */,
-				491981E12DAE3892004A8944 /* AppState+ScreenStateSelector.swift */,
 				491981E22DAE3892004A8944 /* AnyCancellable.swift */,
 				491981E32DAE3892004A8944 /* UIApplication.swift */,
 				491981E42DAE3892004A8944 /* Color.swift */,
@@ -215,8 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				491981E92DAE3892004A8944 /* AppState */,
-				491981EC2DAE3892004A8944 /* ActiveScreensState */,
-				491981F02DAE3892004A8944 /* AppScreenState */,
 			);
 			path = GlobalStates;
 			sourceTree = "<group>";
@@ -228,25 +207,6 @@
 				491981EB2DAE3892004A8944 /* AppStateReducer.swift */,
 			);
 			path = AppState;
-			sourceTree = "<group>";
-		};
-		491981EC2DAE3892004A8944 /* ActiveScreensState */ = {
-			isa = PBXGroup;
-			children = (
-				491981ED2DAE3892004A8944 /* ActiveScreensStateAction.swift */,
-				491981EE2DAE3892004A8944 /* ActiveScreensState.swift */,
-				491981EF2DAE3892004A8944 /* ActiveScreensStateReducer.swift */,
-			);
-			path = ActiveScreensState;
-			sourceTree = "<group>";
-		};
-		491981F02DAE3892004A8944 /* AppScreenState */ = {
-			isa = PBXGroup;
-			children = (
-				491981F12DAE3892004A8944 /* AppScreenStateReducer.swift */,
-				491981F22DAE3892004A8944 /* AppScreenState.swift */,
-			);
-			path = AppScreenState;
 			sourceTree = "<group>";
 		};
 		491981F32DAE3892004A8944 /* Modules */ = {
@@ -272,9 +232,9 @@
 		491981F52DAE3892004A8944 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				491981F82DAE3892004A8944 /* HomeState.swift */,
 				491981F62DAE3892004A8944 /* HomeStateAction.swift */,
 				491981F72DAE3892004A8944 /* HomeStateReducer.swift */,
-				491981F82DAE3892004A8944 /* HomeState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -291,8 +251,8 @@
 		491982082DAE3892004A8944 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				491982092DAE3892004A8944 /* UserDetailsStateAction.swift */,
 				4919820A2DAE3892004A8944 /* UserDetailsState.swift */,
+				491982092DAE3892004A8944 /* UserDetailsStateAction.swift */,
 				4919820B2DAE3892004A8944 /* UserDetailsStateReducer.swift */,
 			);
 			path = State;
@@ -345,19 +305,9 @@
 		49BFCB7E2DAE913900A3A8B6 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				49BFCB7F2DAE913900A3A8B6 /* State */,
 				49BFCB832DAE913900A3A8B6 /* View */,
 			);
 			path = Error;
-			sourceTree = "<group>";
-		};
-		49BFCB7F2DAE913900A3A8B6 /* State */ = {
-			isa = PBXGroup;
-			children = (
-				49BFCB8C2DAF164400A3A8B6 /* ErrorStateReducer.swift */,
-				49BFCB822DAE913900A3A8B6 /* ErrorState.swift */,
-			);
-			path = State;
 			sourceTree = "<group>";
 		};
 		49BFCB832DAE913900A3A8B6 /* View */ = {
@@ -371,6 +321,9 @@
 		49F10E032DAE6C2B006E7217 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				49012DC22DB2452B000F1B02 /* LoginState.swift */,
+				49012DC32DB2452B000F1B02 /* LoginStateAction.swift */,
+				49012DC42DB2452B000F1B02 /* LoginStateReducer.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -443,7 +396,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4919822B2DAE3893004A8944 /* Preview Assets.xcassets in Resources */,
 				4919821F2DAE3892004A8944 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,25 +409,21 @@
 			files = (
 				4919821D2DAE3892004A8944 /* SimpleGithubApp.swift in Sources */,
 				49BFCB7D2DAE78DB00A3A8B6 /* RepoView.swift in Sources */,
-				49BFCB8E2DAF164400A3A8B6 /* ErrorStateReducer.swift in Sources */,
-				491982352DAE3893004A8944 /* ActiveScreensStateAction.swift in Sources */,
+				49012DC52DB2452B000F1B02 /* LoginState.swift in Sources */,
 				4919823A2DAE3893004A8944 /* HomeStateAction.swift in Sources */,
 				491982512DAE3893004A8944 /* ViewDidLoadModifier.swift in Sources */,
-				491982382DAE3893004A8944 /* AppScreenStateReducer.swift in Sources */,
 				4919824F2DAE3893004A8944 /* LoginView.swift in Sources */,
 				4919822C2DAE3893004A8944 /* Publisher.swift in Sources */,
 				491982322DAE3893004A8944 /* CenteringView.swift in Sources */,
 				491982542DAE3E90004A8944 /* ProfileButtonModifier.swift in Sources */,
-				491982372DAE3893004A8944 /* ActiveScreensStateReducer.swift in Sources */,
 				491982502DAE3893004A8944 /* View+Modifiers.swift in Sources */,
 				49012DBE2DAF815B000F1B02 /* RepoItem.swift in Sources */,
 				491982332DAE3893004A8944 /* AppState.swift in Sources */,
-				49BFCB882DAE913900A3A8B6 /* ErrorState.swift in Sources */,
 				49BFCB8A2DAE913900A3A8B6 /* ErrorView.swift in Sources */,
 				49BFCB7B2DAE785700A3A8B6 /* HomeView.swift in Sources */,
 				49012DBF2DAF815B000F1B02 /* User.swift in Sources */,
-				491982362DAE3893004A8944 /* ActiveScreensState.swift in Sources */,
 				49012DB72DAF3332000F1B02 /* GithubReposNetworking.swift in Sources */,
+				49012DC62DB2452B000F1B02 /* LoginStateAction.swift in Sources */,
 				491982232DAE3892004A8944 /* LoggerMiddleware.swift in Sources */,
 				491982482DAE3893004A8944 /* UserDetailsStateReducer.swift in Sources */,
 				4919823C2DAE3893004A8944 /* HomeState.swift in Sources */,
@@ -484,13 +432,13 @@
 				491982472DAE3893004A8944 /* UserDetailsState.swift in Sources */,
 				4919823B2DAE3893004A8944 /* HomeStateReducer.swift in Sources */,
 				4919822F2DAE3893004A8944 /* UIApplication.swift in Sources */,
+				49012DD32DB47385000F1B02 /* AuthMiddleware.swift in Sources */,
 				491982212DAE3892004A8944 /* GithubReposMiddleware.swift in Sources */,
 				4919822E2DAE3893004A8944 /* AnyCancellable.swift in Sources */,
 				491982462DAE3893004A8944 /* UserDetailsStateAction.swift in Sources */,
-				491982392DAE3893004A8944 /* AppScreenState.swift in Sources */,
 				491982492DAE3893004A8944 /* UserDetailsView.swift in Sources */,
 				4919821E2DAE3892004A8944 /* Store.swift in Sources */,
-				4919822D2DAE3893004A8944 /* AppState+ScreenStateSelector.swift in Sources */,
+				49012DC72DB2452B000F1B02 /* LoginStateReducer.swift in Sources */,
 				491982302DAE3893004A8944 /* Color.swift in Sources */,
 				49012DB62DAF3332000F1B02 /* UserInfoNetworking.swift in Sources */,
 			);
@@ -622,7 +570,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SimpleGithub/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -652,7 +600,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SimpleGithub/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

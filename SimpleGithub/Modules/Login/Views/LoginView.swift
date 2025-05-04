@@ -9,13 +9,11 @@ import SwiftUI
 
 struct LoginView: View {
     @EnvironmentObject var store: Store<AppState>
-    @StateObject private var authManager = GitHubAuthManager()
-    @State private var isLoading = false
-    @State private var currentToken: String?
+    var state: LoginState? { store.state.loginState }
     
     var body: some View {
         VStack {
-            if isLoading {
+            if state?.isLoading ?? false {
                 SpinnerView()
             } else {
                 VStack(spacing: 60) {
@@ -23,9 +21,8 @@ struct LoginView: View {
                     Image("logo")
                         .resizable()
                         .frame(width: 140, height: 140)
-                    Button(action: {
-                        isLoading = true
-                        authManager.startGitHubLogin()
+                    Button(action: {                        
+                        store.dispatch(LoginStateAction.startOAuthLogin)
                     }) {
                         HStack(spacing: 12) {
                             Text("login with github")
@@ -45,19 +42,14 @@ struct LoginView: View {
             NavigationLink(
                 destination: HomeView(),
                 isActive: Binding(
-                    get: { authManager.isAuthenticated && currentToken != nil },
+                    get: { state?.accessToken != nil },
                     set: { _ in }
                 ),
                 label: {}
             )
         }
         .onOpenURL { url in
-            authManager.handleCallback(url: url)
-        }
-        .onChange(of: authManager.accessToken) { newToken in
-            isLoading = false
-            currentToken = newToken
-            store.dispatch(HomeStateAction.updateAccessToken(newToken ?? ""))
+            store.dispatch(LoginStateAction.handleCallbackURL(url))
         }
     }
 }
