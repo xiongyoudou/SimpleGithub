@@ -1,1 +1,55 @@
-11
+Question
+The current selected programming language is Python3.7.
+We emphasize the submission of a fully working code over partially correct but efficient code. Once submitted, you cannot review this problem again. You can use print to debug your code. The print may not work in case of syntax/runtime error. The version of Python3.7 being used is 3.7.3.
+
+Charlie has a magic mirror that shows the right-rotated versions of a given word. To generate different right rotations of a word, the word is written in a circle in a clockwise order and read it starting from any given character in a clockwise order until all the characters are covered. For example, in the word "sample", if we start with 'p', we get the right rotated word as "plesam".
+
+Write an algorithm to output 1 if the word1 is a right rotation of word2 otherwise output -1.
+
+Input
+The first line of the input consists of a string word1, representing the first word.
+The second line consists of a string word2, representing the second word.
+
+Output
+Print 1 if the word1 is a right rotation of word2 otherwise print -1.
+
+Note
+Both word1 and word2 contain only lowercase letters between a-z.
+
+Example
+Input:
+sample
+plesam
+
+Output:
+1
+
+Explanation:
+For the word "sample", if we start with "p", we get the right-rotated word as "plesam". There are six such right rotations of "sample", including the original word. So, the output is 1.
+
+右侧代码编辑区域：
+python
+1
+2  """
+3  word1, represents the first word.
+4  word2, represents the second word.
+5  """
+6  def isSameReflection(word1, word2):
+7      # Write your code here
+8
+9      return
+10
+11 def main():
+12     #input for word1
+13     word1 = str(input())
+14
+15     #input for word2
+16     word2 = str(input())
+17
+18
+19     result = isSameReflection(word1, word2)
+20     print(result)
+21
+22 if __name__ == "__main__":
+23     main()
+(右上角有一个计时器显示：43:43)
