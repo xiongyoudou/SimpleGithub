@@ -53,3 +53,76 @@ python
 22 if __name__ == "__main__":
 23     main()
 (右上角有一个计时器显示：43:43)
+
+
+
+
+
+
+Question
+
+The current selected programming language is Python3.7.
+We emphasize the submission of a fully working code over partially correct but efficient code. Once submitted, you cannot review this problem again. You can use print to debug your code. The print may not work in case of syntax/runtime error. The version of Python3.7 being used is 3.7.3.
+
+The manager of a supermarket wishes to hold an event at which he will distribute gift baskets to lucky customers. Each gift basket contains a pair of products. Each basket contains different product pairs, but the overall value of the baskets may be the same. There are N types of products and each product has a price. The gift baskets will awarded to the customers that pick a product pair that has a difference in price equal to the given integer value K.
+
+Write an algorithm to help the Manager find the total numbers of lucky customers who will win a gift basket.
+
+Input
+The first line of the input consists of an integer-
+list_input_size, representing the types of products(N).
+The second line consists of N space-separated integers -
+list_input[0], list_input[1], ......, list_input[N-1], representing
+the price of the products.
+The last line consists of an integer-
+K_input, representing the given value K.
+
+Output
+Print an integer representing the total number of lucky
+customers who will win a gift basket.
+
+Constraints
+1 ≤ list_input_size ≤ 10^6
+0 ≤ K_input ≤ 10^9
+0 ≤ list_input[0], list_input[1], ......, list_input[N-1] ≤ 10^9
+
+Example
+Input:
+6
+10 15 23 14 2 15
+13
+
+Output:
+3
+
+Explanation:
+There are 3 pairs with difference 13; the pairs are (10, 23), (15, 2) and (2, 15).
+So, the output is 3.
+
+右侧代码编辑区域：
+python
+1
+2  """
+3  list_input, represents the price of the products.
+4  K, represents the given value K.
+5  """
+6  def totalLuckyCustomer(list_input, K):
+7      # Write your code here
+8
+9      return
+10
+11 def main():
+12     #input for list_input
+13     list_input = []
+14     list_input_size = int(input())
+15     list_input = list(map(int,input().split()))
+16
+17     #input for K
+18     K = int(input())
+19
+20
+21     result = totalLuckyCustomer(list_input, K)
+22     print(result)
+23
+24 if __name__ == "__main__":
+25     main()
